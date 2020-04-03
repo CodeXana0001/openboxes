@@ -227,7 +227,10 @@ class StockMovement {
                 shipment: shipment,
                 isFromOrder: shipment?.isFromPurchaseOrder,
                 isShipped: shipment?.status?.code >= ShipmentStatusCode.SHIPPED,
-                isReceived: shipment?.status?.code >= ShipmentStatusCode.RECEIVED
+                isReceived: shipment?.status?.code >= ShipmentStatusCode.RECEIVED,
+                driverName: shipment.driverName,
+                trackingNumber: shipment.referenceNumbers.first(),
+                comments: shipment.additionalInformation,
         )
 
         if (shipment.shipmentItems) {
